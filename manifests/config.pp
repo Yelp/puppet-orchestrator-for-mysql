@@ -145,7 +145,6 @@ class orchestrator::config inherits orchestrator {
   # Create a merged together set of options.  Rightmost hashes win over left. Requires stdlib
   $options = merge($config_defaults, $orchestrator::config_override)
 
-  file { $orchestrator::config_path:
     ensure  => file,
     owner   => 0,
     group   => 0,

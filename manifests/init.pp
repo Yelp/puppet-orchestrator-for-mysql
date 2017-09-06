@@ -33,10 +33,15 @@ class orchestrator (
   validate_bool($service_manage)
   validate_string($service_name)
 
-  $config_path = "#{configs_dir}/#{config}"
-  $srv_path    = "#{configs_dir}/#{srv_cnf}"
-  $top_path    = "#{configs_dir}/#{topology_cnf}"
+  $config_path = "#{configs_dir}#{config}"
+  $srv_path    = "#{configs_dir}#{srv_cnf}"
+  $top_path    = "#{configs_dir}#{topology_cnf}"
 
+  file { 'orch-dir':
+      path => $configs_dir,
+      ensure => directory,
+      mode => '0644',
+  }
   
   # Using anchor pattern based on known issue:
   # http://docs.puppetlabs.com/puppet/2.7/reference/lang_containment.html#known-issues

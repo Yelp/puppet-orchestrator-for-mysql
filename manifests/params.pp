@@ -1,7 +1,7 @@
 #
 class orchestrator::params {
 
-  $configs_dir       = '/etc/orchestrator'
+  $configs_dir       = '/etc/orchestrator/'
   $config            = 'orchestrator.conf.json'
   $config_template   = 'orchestrator/orchestrator.conf.json.erb'
   $package_ensure    = 'present'
