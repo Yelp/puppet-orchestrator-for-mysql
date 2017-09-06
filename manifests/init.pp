@@ -14,9 +14,17 @@ class orchestrator (
   $service_ensure    = $orchestrator::params::service_ensure,
   $service_manage    = $orchestrator::params::service_manage,
   $service_name      = $orchestrator::params::service_name,
+  $topology_cnf      = $orchestrator::params::topology_cnf,
+  $topology_user     = $orchestrator::params::topology_user,
+  $topology_pass     = $orchestrator::params::topology_pass,
+  $srv_cnf           = $orchestrator::params::srv_cnf,
+  $srv_user          = $orchestrator::params::srv_user,
+  $srv_pass          = $orchestrator::params::srv_pass,
 ) inherits orchestrator::params {
 
   validate_absolute_path($config)
+  validate_absolute_path($topology_cnf)
+  validate_absolute_path($srv_cnf)
   validate_string($config_template)
   validate_string($package_ensure)
   validate_bool($package_manage)
