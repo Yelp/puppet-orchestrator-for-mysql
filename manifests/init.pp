@@ -3,9 +3,9 @@
 #
 class orchestrator (
   $config            = $orchestrator::params::config,
-  $config_defaults   = $orchestrator::params::config_defaults,
   $config_override   = {},
   $config_template   = $orchestrator::params::config_template,
+  $configs_dir       = $orchestrator::params::configs_dir,
   $package_ensure    = $orchestrator::params::package_ensure,
   $package_manage    = $orchestrator::params::package_manage,
   $package_name      = $orchestrator::params::package_name,
@@ -22,9 +22,7 @@ class orchestrator (
   $srv_pass          = $orchestrator::params::srv_pass,
 ) inherits orchestrator::params {
 
-  validate_absolute_path($config)
-  validate_absolute_path($topology_cnf)
-  validate_absolute_path($srv_cnf)
+  validate_absolute_path($configs_dir)
   validate_string($config_template)
   validate_string($package_ensure)
   validate_bool($package_manage)
@@ -35,6 +33,11 @@ class orchestrator (
   validate_bool($service_manage)
   validate_string($service_name)
 
+  $config_path = "#{configs_dir}/#{config}"
+  $srv_path    = "#{configs_dir}/#{srv_cnf}"
+  $top_path    = "#{configs_dir}/#{topology_cnf}"
+
+  
   # Using anchor pattern based on known issue:
   # http://docs.puppetlabs.com/puppet/2.7/reference/lang_containment.html#known-issues
   anchor { 'orchestrator::begin': } ->
