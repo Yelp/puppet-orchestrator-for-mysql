@@ -146,6 +146,7 @@ class orchestrator::config inherits orchestrator {
   $options = merge($config_defaults, $orchestrator::config_override)
 
   file { $orchestrator::config:
+    path    => $config_path,
     ensure  => file,
     owner   => 0,
     group   => 0,

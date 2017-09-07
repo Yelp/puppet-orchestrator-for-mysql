@@ -7,7 +7,7 @@ class orchestrator::params {
   $package_ensure    = 'present'
   $package_manage    = true
   $package_name      = [ 'orchestrator' ]
-  $repo_manage       = true
+  $repo_manage       = false
   $service_enable    = true
   $service_ensure    = 'running'
   $service_manage    = true

@@ -1,4 +1,4 @@
-
+require 'spec_helper'
 describe 'orchestrator' do
   
   context 'verify module' do
@@ -31,7 +31,7 @@ describe 'orchestrator' do
       should contain_file('orchestrator.conf.json').with({
         :ensure  => 'file',
         :owner   => '0',
-        :gorup   => '0',
+        :group   => '0',
         :path    => '/etc/orchestrator/orchestrator.conf.json',
         :mode    => '0644',
       })
@@ -53,7 +53,7 @@ describe 'orchestrator' do
       should contain_file('srv_creds.cnf').with({
         :path    => '/etc/orchestrator/srv_creds.cnf',
         :mode    => '0644',
-        :content => "[client]\nuser=orchestrator\npassword\n"
+        :content => "[client]\nuser=orchestrator\npassword=\n"
       })
     end 
 
