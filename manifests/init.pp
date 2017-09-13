@@ -20,6 +20,7 @@ class orchestrator (
   $srv_cnf           = $orchestrator::params::srv_cnf,
   $srv_user          = $orchestrator::params::srv_user,
   $srv_pass          = $orchestrator::params::srv_pass,
+  $metadb_host       = $orchestrator::params::metadb_host,
 ) inherits orchestrator::params {
 
   validate_absolute_path($configs_dir)

@@ -18,5 +18,5 @@ class orchestrator::params {
   $topology_cnf      = 'topology_creds.cnf'
   $topology_user     = 'orchestrator'
   $topology_pass     = ''
-
-  }
+  $metadb_host       = 'localhost'
+}
