@@ -153,5 +153,4 @@ class orchestrator::config inherits orchestrator {
     mode    => '0644',
     content => template($orchestrator::config_template),
   }
-
 }

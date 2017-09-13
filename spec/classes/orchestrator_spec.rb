@@ -1,8 +1,8 @@
 require 'spec_helper'
 describe 'orchestrator' do
-  
+
   context 'verify module' do
-    
+
     it 'does contain anchor orchestrator::begin ' do
       should contain_anchor('orchestrator::begin')
     end
@@ -15,15 +15,15 @@ describe 'orchestrator' do
       })
     end
 
-    it 'does contain class orchestrator::repo' do 
+    it 'does contain class orchestrator::repo' do
       should contain_class('orchestrator::repo')
     end
 
-    it 'does contain class orchestrator::install' do 
+    it 'does contain class orchestrator::install' do
       should contain_class('orchestrator::install')
     end
 
-    it 'does contain class orchestrator::config' do 
+    it 'does contain class orchestrator::config' do
       should contain_class('orchestrator::config')
     end
 
@@ -37,7 +37,7 @@ describe 'orchestrator' do
       })
     end
 
-    it 'does contain class orchestrator::my_cnf' do 
+    it 'does contain class orchestrator::my_cnf' do
       should contain_class('orchestrator::my_cnf')
     end
 
@@ -55,9 +55,9 @@ describe 'orchestrator' do
         :mode    => '0644',
         :content => "[client]\nuser=orchestrator\npassword=\n"
       })
-    end 
+    end
 
-    it 'does contain class orchestrator::service' do 
+    it 'does contain class orchestrator::service' do
       should contain_class('orchestrator::service')
     end
 
