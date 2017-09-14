@@ -16,7 +16,7 @@ class orchestrator::config inherits orchestrator {
     'MySQLTopologyUseMutualTLS'                  => false,
     'MySQLTopologyMaxPoolConnections'            => 3,
     'DatabaselessMode__experimental'             => false,
-    'MySQLOrchestratorHost'                      => 'myorchestrator.backend.master.mcompany.com',
+    'MySQLOrchestratorHost'                      => $orchestrator::metadb_host,
     'MySQLOrchestratorPort'                      => 3306,
     'MySQLOrchestratorDatabase'                  => 'orchestrator',
     'MySQLOrchestratorCredentialsConfigFile'     => $orchestrator::srv_path,
@@ -153,5 +153,4 @@ class orchestrator::config inherits orchestrator {
     mode    => '0644',
     content => template($orchestrator::config_template),
   }
-
 }
