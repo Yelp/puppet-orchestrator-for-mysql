@@ -19,4 +19,5 @@ class orchestrator::params {
   $topology_user     = 'orchestrator'
   $topology_pass     = ''
   $metadb_host       = 'localhost'
+  $write_creds       = true
 }
