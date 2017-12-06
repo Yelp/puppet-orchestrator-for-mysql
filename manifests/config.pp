@@ -55,7 +55,7 @@ class orchestrator::config inherits orchestrator {
     'AuditPageSize'                              => 20,
     'AuditPurgeDays'                             => 365,
     'RemoveTextFromHostnameDisplay'              => '.mycompany.com:3306',
-    'ReadOnly'                                   => false,
+    'ReadOnly'                                   => true,
     'AuthenticationMethod'                       => '',
     'HTTPAuthUser'                               => '',
     'HTTPAuthPassword'                           => '',
