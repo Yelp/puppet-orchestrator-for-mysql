@@ -22,6 +22,8 @@ class orchestrator (
   $srv_pass          = $orchestrator::params::srv_pass,
   $metadb_host       = $orchestrator::params::metadb_host,
   $write_creds       = $orchestrator::params::write_creds,
+  $owner             = $orchestrator::params::owner,
+  $group             = $orchestrator::params::group,
 ) inherits orchestrator::params {
 
   validate_absolute_path($configs_dir)
@@ -34,17 +36,21 @@ class orchestrator (
   validate_string($service_ensure)
   validate_bool($service_manage)
   validate_string($service_name)
+  validate_string($owner)
+  validate_string($group)
 
   $config_path = "${configs_dir}${config}"
   $srv_path    = "${configs_dir}${srv_cnf}"
   $top_path    = "${configs_dir}${topology_cnf}"
 
   file { 'orch-dir':
-      path => $configs_dir,
+      path   => $configs_dir,
       ensure => directory,
-      mode => '0644',
+      owner  => $owner,
+      group  => $group,
+      mode   => '0644',
   }
-  
+
   # Using anchor pattern based on known issue:
   # http://docs.puppetlabs.com/puppet/2.7/reference/lang_containment.html#known-issues
   anchor { 'orchestrator::begin': } ->

@@ -14,10 +14,12 @@ class orchestrator::params {
   $service_name      = 'orchestrator'
   $srv_cnf           = 'srv_creds.cnf'
   $srv_user          = 'orchestrator'
-  $srv_pass          = '' 
+  $srv_pass          = ''
   $topology_cnf      = 'topology_creds.cnf'
   $topology_user     = 'orchestrator'
   $topology_pass     = ''
   $metadb_host       = 'localhost'
   $write_creds       = true
+  $owner             = 'root'
+  $group             = 'root'
 }

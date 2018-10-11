@@ -10,6 +10,8 @@ describe 'orchestrator' do
     it 'does contain directory /etc/orchestrator' do
       should contain_file('orch-dir').with({
         :ensure => 'directory',
+        :owner   => 'root',
+        :group   => 'root',
         :path   => '/etc/orchestrator/',
         :mode   => '0644',
       })
@@ -30,8 +32,8 @@ describe 'orchestrator' do
     it 'does contain file orchestrator.conf.json' do
       should contain_file('orchestrator.conf.json').with({
         :ensure  => 'file',
-        :owner   => '0',
-        :group   => '0',
+        :owner   => 'root',
+        :group   => 'root',
         :path    => '/etc/orchestrator/orchestrator.conf.json',
         :mode    => '0644',
       })

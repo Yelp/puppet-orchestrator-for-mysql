@@ -148,8 +148,8 @@ class orchestrator::config inherits orchestrator {
   file { $orchestrator::config:
     path    => $config_path,
     ensure  => file,
-    owner   => 0,
-    group   => 0,
+    owner   => $owner,
+    group   => $group,
     mode    => '0644',
     content => template($orchestrator::config_template),
   }
