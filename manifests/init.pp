@@ -50,7 +50,7 @@ class orchestrator (
       group  => $group,
       mode   => '0644',
   }
-  
+
   # Using anchor pattern based on known issue:
   # http://docs.puppetlabs.com/puppet/2.7/reference/lang_containment.html#known-issues
   anchor { 'orchestrator::begin': } ->
